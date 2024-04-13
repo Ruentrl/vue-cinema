@@ -1,0 +1,365 @@
+@import './reset.css';
+@import './fonts.css';
+@import './navbar/navbar.css';
+@import "./main/main.css";
+
+
+:root {
+    --mon: 'Montserrat';
+    --rob: 'Roboto';
+    --com: 'Comfortaa';
+    --whiteColor: #fff;
+    --orangeColor: #F18128;
+    --primaryColor: #040D1F;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+body {
+    background: var(--primaryColor);
+}
+
+.header__poster {
+    padding: 20px 0;
+    background: linear-gradient(135.00deg, rgb(56, 0, 175) 0%, rgb(191, 114, 4) 97.523%, rgb(194, 117, 0) 100%, rgb(194, 117, 0) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    height: 80px;
+}
+
+.header__poster span {
+    color: var(--whiteColor);
+    font-family: var(--com);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    max-width: 166px;
+}
+
+.header__poster img {
+    animation-name: pulse;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.primary-btn {
+    background: var(--primaryColor);
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    padding: 18px 48px;
+    transition: .5s;
+}
+
+.primary-btn:hover {
+    background-color: var(--orangeColor);
+}
+
+.primary-btn:active {
+    transform: scale(.95);
+}
+
+.primary-btn span {
+    color: var(--whiteColor);
+    font-family: var(--rob);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.section__title {
+    max-width: max-content;
+    color: var(--orangeColor);
+    font-family: var(--com);
+    font-weight: 400;
+    font-size: 36px;
+    text-transform: capitalize;
+    border-bottom: 2px solid var(--orangeColor);
+    padding-bottom: 10px;
+}
+
+.films__items {
+    margin-top: 55px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.films__items-card {
+    position: relative;
+    display: flex;
+    max-width: max-content;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.films__items-card::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(180.00deg, rgba(241, 129, 40, 0.35), rgba(0, 0, 0, 0.71) 51.042%, rgba(7, 15, 25, 0.8) 100%);
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.films__items-card img {
+    border-radius: 6px;
+    transition: .5s;
+}
+
+.films__items-card:hover img {
+    transform: scale(1.1);
+}
+
+.films__items-card-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.films__items-card-content svg {
+    width: 100%;
+}
+
+.films__items-card .play {
+    transition: .3s;
+}
+
+.stroke {
+    transition: .3s;
+}
+
+.films__items-card:hover .stroke {
+    opacity: 0;
+}
+
+.films__items-card:hover .play {
+    transform: scale(1.3);
+    transform-origin: center;
+}
+
+.card-content__span {
+    color: var(--whiteColor);
+    font-family: var(--mon);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    transition: .3s;
+}
+
+.card-content__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.card-content__title {
+    color: var(--whiteColor);
+    font-family: var(--mon);
+    font-weight: 400;
+    font-size: 22px;
+}
+
+.card-content__text {
+    max-width: 225px;
+    color: var(--whiteColor);
+    font-family: var(--com);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    transition: .3s;
+    transform: scaleY(0);
+    transform-origin: top;
+    max-height: 0;
+}
+
+.films__items-card:hover .card-content__text {
+    transform: scaleY(100%);
+    max-height: 142px;
+}
+
+.card-content__info span {
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.trailer {
+    background: linear-gradient(90.00deg, rgb(222, 247, 255), rgb(244, 252, 255) 45.639%, rgba(255, 255, 255, 0) 100.721%);
+    padding-top: 42px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.trailer__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.trailer__bg {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.trailer__text {
+    max-width: 560px;
+    font-family: var(--mon);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: justify;
+    color: #000;
+}
+
+.collections {
+    padding: 60px 0;
+}
+
+.collections__content {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.collections__cards {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.collections__cards-item {
+    max-width: max-content;
+    position: relative;
+    border-radius: 6px;
+}
+
+.collections__cards-item::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 6px;
+    background: linear-gradient(270.00deg, rgba(7, 15, 25, 0.56), rgba(49, 114, 9, 0.56) 100%);
+}
+
+.collections__cards-item img {
+    border-radius: 6px;
+}
+
+.square {
+    width: 19px;
+    height: 24px;
+    background-color: var(--primaryColor);
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    border-radius: 2px;
+}
+
+.square::before {
+    content: "";
+    width: 19px;
+    height: 24px;
+    background-color: var(--primaryColor);
+    position: absolute;
+    top: 0;
+    right: -309px;
+    border-radius: 2px;
+}
+
+.square:nth-child(2) {
+    top: 46px;
+}
+
+.square:nth-child(3) {
+    top: 85px;
+}
+
+.square:nth-child(4) {
+    top: 124px;
+}
+
+.square:nth-child(5) {
+    top: 164px;
+}
+
+.collections__cards-item svg {
+    width: max-content;
+    position: absolute;
+    top: 57px;
+    left: 154px;
+}
+
+.collections__cards-item .play {
+    transition: .3s;
+}
+
+.stroke {
+    transition: .3s;
+}
+
+.collections__cards-item:hover .stroke {
+    opacity: 0;
+}
+
+.collections__cards-item:hover .play {
+    transform: scale(1.3);
+    transform-origin: center;
+}
